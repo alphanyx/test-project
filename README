@@ -1,0 +1,8 @@
+
+I've added an example doctrine and multidomain configuration file to the project.
+So that everyon can have a look how the multidomain configuration works and how it is used in doctrine.
+
+To use the template Path you have to add this into your controller (mostly in the base controller)
+$this->template = strtolower(trim(implode('/', array($this->request->directory(), $this->request->domainTemplatepath(), $this->request->controller(), $this->request->action())), '/'));
+
+The new part is this one "$this->request->domainTemplatepath()"

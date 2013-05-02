@@ -5,7 +5,7 @@ class SmartyView extends Kohana_SmartyView {
 	public static function instance() {
 		$_instance = parent::instance();
 
-		$_instance->registerPlugin('compiler', 'multidomaininclude', 'smarty_compiler_multidomaininclude');
+		$_instance->registerPlugin('function', 'multidomaininclude', 'smarty_function_multidomaininclude');
 
 		return $_instance;
 	}

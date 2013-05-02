@@ -8,7 +8,7 @@
  * Purpose:  Checks the paths from the multidomain settings and set the right template dir
  * -------------------------------------------------------------
  */
-function smarty_compiler_multidomaininclude($params, &$smarty)
+function smarty_function_multidomaininclude($params, &$smarty)
 {
 	$templateDirs = $smarty->getTemplateDir();
 

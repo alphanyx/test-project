@@ -88,7 +88,7 @@ class Multidomain_Multidomainconfig {
 			return (object)array(
 				'project' => '',
 				'environment' => '',
-				'templatepath' => $this->getDefaultTemplatePath(),
+				'templatepath' => '',
 			);
 		}
 	}

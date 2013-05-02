@@ -171,6 +171,12 @@ class Multidomain_Multidomainconfig {
 	}
 
 	public function getDatabase($projectname, $environment) {
+		if (!$projectname) {
+			$projectname = $this->getCurrentProject();
+		}
+		if (!$environment) {
+			$environment = $this->getCurrentEnvironment();
+		}
 		$environmentInfo = $this->getProjectEnvironment($projectname, $environment);
 
 		if (isset($environmentInfo['database'])) {
@@ -180,10 +186,45 @@ class Multidomain_Multidomainconfig {
 		}
 	}
 
-	public function getTemplatePath($projectname, $environment) {
+	public function getTemplatePath($projectname = null, $environment = null) {
+		if (!$projectname) {
+			$projectname = $this->getCurrentProject();
+		}
+		if (!$environment) {
+			$environment = $this->getCurrentEnvironment();
+		}
+
 		$projectSettings = $this->getProjectSettings($projectname, $environment);
 
 		return isset($projectSettings['templates']) ? $projectSettings['templates'] : '';
+	}
+
+	public function getSmartyIncludesPath($projectname = null, $environment = null) {
+		if (!$projectname) {
+			$projectname = $this->getCurrentProject();
+		}
+		if (!$environment) {
+			$environment = $this->getCurrentEnvironment();
+		}
+
+		$projectSettings = $this->getProjectSettings($projectname, $environment);
+
+		$paths = array();
+
+		if (isset($projectSettings['smartyIncludes'])) {
+			if (is_array($projectSettings['smartyIncludes']) && count($projectSettings['smartyIncludes'])) {
+				foreach ($projectSettings['smartyIncludes'] as $tmpPath) {
+					$paths[] = $tmpPath;
+				}
+			} else {
+				$paths[] = $projectSettings['smartyIncludes'];
+			}
+		}
+		if (empty($paths)) {
+			$paths[] = DIRECTORY_SEPARATOR;
+		}
+
+		return $paths;
 	}
 
 	protected function getConfig(){

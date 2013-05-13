@@ -1,20 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Multidomain_Multidomainconfig {
+class Multidomain_Multidomainconfig extends Multidomain_Abstract {
 
 	private static $config = null;
-	private static $instance = null;
 	private static $matches = array();
 
 	private static $isInShell = false;
-
-	public static function instance() {
-		if (self::$instance instanceof Multidomain_Multidomainconfig) {
-			return self::$instance;
-		}
-
-		return self::$instance = new Multidomain_Multidomainconfig();
-	}
 
 	public function getDomain() {
 		$domain = '';
@@ -108,8 +99,6 @@ class Multidomain_Multidomainconfig {
 			throw new Multidomain_Exception_Notfound('The Project with the name :project could not be found!', array(':project' => $projectname));
 		}
 	}
-
-	// protected array_merge_recursive($array7)
 
 	public function getProjectSettings($projectname = null, $environment = null) {
 		if (!$projectname) {

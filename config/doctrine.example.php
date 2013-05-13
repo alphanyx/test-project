@@ -1,8 +1,8 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-extract( (array)Multidomain_Multidomainconfig::instance()->matchDomain() );
+extract( (array)Multidomainconfig::instance()->matchDomain() );
 
-$db = (object)Multidomain_Multidomainconfig::instance()->getDatabase($project, $environment);
+$db = (object)Multidomainconfig::instance()->getDatabase($project, $environment);
 
 return array(
 	'connection' => array(

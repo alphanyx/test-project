@@ -32,7 +32,7 @@ class Multidomain_Request extends Kohana_Request {
 			return FALSE;
 		}
 
-		$results = Multidomain_Multidomainconfig::instance()->matchDomain($host);
+		$results = Multidomainconfig::instance()->matchDomain($host);
 
 		if ($results !== false) {
 			self::$domain = $host;

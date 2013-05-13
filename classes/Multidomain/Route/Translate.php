@@ -7,7 +7,7 @@ class Multidomain_Route_Translate extends Multidomain_Abstract {
 	private $projectSettings = array();
 
 	public function __construct() {
-		$this->projectSettings = Multidomain_Multidomainconfig::instance()->getProjectSettings();
+		$this->projectSettings = Multidomainconfig::instance()->getProjectSettings();
 
 		$this->loadTranslations();
 	}

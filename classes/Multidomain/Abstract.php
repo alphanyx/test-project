@@ -22,4 +22,6 @@ class Multidomain_Abstract {
 		$reflect = new ReflectionClass($class);
 		return self::$_instances[$class] = $reflect->newInstanceArgs(func_get_args());
 	}
+
+	public function __construct() { }
 }

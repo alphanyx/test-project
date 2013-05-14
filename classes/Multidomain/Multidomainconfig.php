@@ -104,6 +104,9 @@ class Multidomain_Multidomainconfig extends Multidomain_Abstract {
 		if (!$projectname) {
 			$projectname = $this->getCurrentProject();
 		}
+		if ($environment === null) {
+			$environment = $this->getCurrentEnvironment();
+		}
 
 		$config = $this->getConfig();
 
@@ -114,7 +117,7 @@ class Multidomain_Multidomainconfig extends Multidomain_Abstract {
 
 			$environmentSettings = array();
 			$globalSettings = $this->getGlobalSettings($projectname);
-			if ($environment !== null) {
+			if ($environment !== false) {
 				if (isset($projectInfo['environments'][$environment])) {
 					$environmentInfo = $projectInfo['environments'][$environment];
 

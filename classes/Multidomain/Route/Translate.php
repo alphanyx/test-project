@@ -40,12 +40,10 @@ class Multidomain_Route_Translate extends Multidomain_Abstract {
 			$translateInto = $params['lang'];
 		}
 
-		if ($translateInto != $defaultLanguage) {
-			if (isset($this->translations[$translateInto]) && is_array($this->translations[$translateInto])) {
-				foreach ($this->translations[$translateInto] as $translated => $original) {
-					if (strcasecmp($original, $uri) == 0) {
-						$uri = $translated;
-					}
+		if (isset($this->translations[$translateInto]) && is_array($this->translations[$translateInto])) {
+			foreach ($this->translations[$translateInto] as $translated => $original) {
+				if (strcasecmp($original, $uri) == 0) {
+					$uri = $translated;
 				}
 			}
 		}

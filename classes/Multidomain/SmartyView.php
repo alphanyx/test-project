@@ -45,13 +45,6 @@ class Multidomain_SmartyView extends Kohana_SmartyView {
 	}
 
 	public function render($file = NULL) {
-		if (class_exists('Mobile_Detect')) {
-			$mobiledetect = new Mobile_Detect();
-			$this->_data['mobiledetect'] = $mobiledetect;
-			$this->_data['is_mobile'] = $mobiledetect->isMobile();
-			$this->_data['is_tablet'] = $mobiledetect->isTablet();
-		}
-
 		return parent::render($file);
 	}
 }

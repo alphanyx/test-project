@@ -14,9 +14,7 @@ class Multidomain_Route_Translate extends Multidomain_Abstract {
 
 
 	public function decodeUri(Request &$request, $translateInto = 'en') {
-		$uri = $request->uri();
-
-		$uri = strtolower($uri);
+		$uri = strtolower($request->uri());
 
 		foreach ($this->translations as $lang => $translations) {
 			foreach ($translations as $translated => $original) {
@@ -52,8 +50,6 @@ class Multidomain_Route_Translate extends Multidomain_Abstract {
 	}
 
 	protected function loadTranslations() {
-
-
 		$translationFile = $this->defaultTranslationFile;
 		if (isset($this->projectSettings['routeTranslation'])) {
 			$translationFile = $this->projectSettings['routeTranslation'];

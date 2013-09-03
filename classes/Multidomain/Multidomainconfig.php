@@ -302,7 +302,8 @@ class Multidomain_Multidomainconfig extends Multidomain_Abstract {
 		return self::$config = array(
 			'raw' => $rawConfig,
 			'domains' => $domains,
-			'hosts' => $hosts
+			'hosts' => $hosts,
+			'dummy' => array()
 		);
 	}
 }
